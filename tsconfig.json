@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "emitDeclarationOnly": true,
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": false,
+    "skipLibCheck": false,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "UMD",
+    "moduleResolution": "Node",
+    "isolatedModules": true,
+    "noEmit": false,
+    "jsx": "react",
+    "declaration": true,
+    "pretty": true,
+    "sourceMap": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": false,
+    "noFallthroughCasesInSwitch": true,
+    "importHelpers": true,
+    "baseUrl": "./",
+    "paths": {
+      "@hooks/*": ["./packages/hooks/*"]
+    },
+    "typeRoots": ["node_modules/@types", "node_modules@tarojs/taro/types/global.d.ts"],
+    "strictNullChecks": true,
+    "rootDir": ".",
+    "outDir": "types"
+  },
+  "exclude": ["node_modules", "lib", "es", "dist", "typings", "__tests__", "test", "tests", "types"]
+}
