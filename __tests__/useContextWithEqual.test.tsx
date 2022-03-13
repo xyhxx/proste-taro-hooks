@@ -1,6 +1,6 @@
 import React, { Dispatch, FC, useEffect, useReducer } from 'react';
 import { createContext } from 'use-context-selector';
-import { useContextWithEqual } from '../useContextWithEqual';
+import { useContextWithEqual } from '../src/useContextWithEqual';
 import { fireEvent, render, RenderResult } from '@testing-library/react';
 
 type State = ReturnType<typeof state>;

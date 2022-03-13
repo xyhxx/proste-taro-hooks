@@ -1,4 +1,4 @@
-import { useDelayFn } from '@hooks/useDelayFn';
+import { useDelayFn } from '../src/useDelayFn';
 import { act, renderHook } from '@testing-library/react-hooks';
 import { useState } from 'react';
 
