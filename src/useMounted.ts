@@ -1,6 +1,6 @@
 /*
  * @Description: 只有在加载时触发一次的useEffect
- * @FilePath: /proste-taro/packages/hooks/useMounted.ts
+ * @FilePath: /proste-taro-hooks/src/useMounted.ts
  */
 
 import { EffectCallback, useEffect, useRef } from 'react';
@@ -15,7 +15,6 @@ import { EffectCallback, useEffect, useRef } from 'react';
  * });
  */
 export function useMounted(effect: EffectCallback) {
-  console.log('mounted');
   const isMounted = useRef(false);
 
   useEffect(function () {
