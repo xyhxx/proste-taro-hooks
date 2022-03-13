@@ -1,5 +1,5 @@
 {
-  "name": "@proste-taro/hooks",
+  "name": "proste-taro-hooks",
   "version": "0.0.1-rc",
   "description": "便携使用的taro-hook",
   "license": "MIT",
