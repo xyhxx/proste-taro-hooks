@@ -1,37 +1,24 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "emitDeclarationOnly": true,
-    "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "allowJs": false,
-    "skipLibCheck": false,
-    "esModuleInterop": false,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "UMD",
-    "moduleResolution": "Node",
-    "isolatedModules": true,
-    "noEmit": false,
+    "target": "es5",
+    "module": "esNext",
+    "moduleResolution": "node",
     "jsx": "react",
     "declaration": true,
     "pretty": true,
+    "rootDir": "src",
     "sourceMap": false,
+    "strict": true,
+    "esModuleInterop": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noImplicitAny": false,
     "noFallthroughCasesInSwitch": true,
-    "importHelpers": true,
-    "baseUrl": "./",
-    "paths": {
-      "@hooks/*": ["./packages/hooks/*"]
-    },
-    "typeRoots": ["node_modules/@types", "node_modules@tarojs/taro/types/global.d.ts"],
-    "strictNullChecks": true,
-    "rootDir": ".",
-    "outDir": "types"
+    "outDir": "es",
+    "lib": ["es2018", "dom"],
+    "importHelpers": false,
+    "skipDefaultLibCheck": true
   },
-  "exclude": ["node_modules", "lib", "es", "dist", "typings", "__tests__", "test", "tests", "types"]
+  "exclude": ["node_modules", "es", "__tests__", "jest.config.ts", "jest.config.*.ts"]
 }
