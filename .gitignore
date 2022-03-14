@@ -67,6 +67,7 @@ typings/
 # build output
 lib/
 es/
+types/
 
 .DS_Store
 
