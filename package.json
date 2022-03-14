@@ -17,7 +17,6 @@
   },
   "scripts": {
     "build": "vite build",
-    "publish": "npm publish --access public",
     "lint:style": "stylelint packages/**/*.css",
     "lint:script": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:style-fix": "npm run lint:style -- --fix",
