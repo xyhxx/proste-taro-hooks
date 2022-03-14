@@ -1,4 +1,4 @@
-import { useDelayFn } from '../src/useDelayFn';
+import { useDelay } from '../src/useDelay';
 import { act, renderHook } from '@testing-library/react-hooks';
 import { useState } from 'react';
 
@@ -7,7 +7,7 @@ jest.useFakeTimers();
 test('会延迟触发的方法', function () {
   const { result } = renderHook<unknown, [number, () => void]>(function () {
     const [state, setState] = useState(0);
-    const delay = useDelayFn(function () {
+    const delay = useDelay(function () {
       act(function () {
         setState(1);
       });

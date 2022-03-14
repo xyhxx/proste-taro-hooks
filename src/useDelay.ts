@@ -1,6 +1,6 @@
 /*
  * @Description: 可以主动调用的延迟函数
- * @FilePath: /proste-taro/packages/hooks/useDelayFn.ts
+ * @FilePath: /proste-taro-hooks/src/useDelay.ts
  */
 
 import { useCallback, useEffect, useRef } from 'react';
@@ -19,7 +19,7 @@ import { useLatest } from 'react-use';
  * delayClose();
  * dosomething...
  */
-export function useDelayFn<T>(fn: (state?: T) => void, delay: number) {
+export function useDelay<T>(fn: (state?: T) => void, delay: number) {
   const timeoutRef = useRef<NodeJS.Timeout>();
   const f = useLatest(fn);
 

@@ -1,6 +1,6 @@
 /*
  * @Description:提供读写缓存能力的hook
- * @FilePath: /proste-taro/packages/hooks/useStorage.ts
+ * @FilePath: /proste-taro-hooks/src/useStorage.ts
  */
 
 import { getStorageSync, removeStorageSync, setStorageSync } from '@tarojs/taro';
@@ -16,7 +16,7 @@ import { useMemo } from 'react';
  * const [value, {set, get}] = useStorage(key);
  *
  */
-export function useStorageFn<T>(
+export function useStorage<T>(
   key: string,
 ): [
   value: T,
