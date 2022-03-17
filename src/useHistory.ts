@@ -1,6 +1,6 @@
 /*
  * @Description: 小程序导航hooks
- * @FilePath: /proste-taro/packages/hooks/src/useHistory.ts
+ * @FilePath: /proste-taro-hooks/src/useHistory.ts
  */
 
 import { useCallback, useMemo } from 'react';
@@ -53,5 +53,5 @@ export function useNavigate() {
     return { push, pop, redirect, redirectToTab, launchTo };
   }, [formatParams]);
 
-  return { ...actions };
+  return actions;
 }
