@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "esNext",
     "module": "esNext",
     "moduleResolution": "node",
     "jsx": "react",
@@ -13,12 +13,24 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
-    "noImplicitAny": false,
+    "noImplicitAny": true,
+    "skipLibCheck": true,
     "noFallthroughCasesInSwitch": true,
-    "outDir": "es",
+    "outDir": "types",
     "lib": ["es2018", "dom"],
     "importHelpers": false,
-    "skipDefaultLibCheck": true
+    "skipDefaultLibCheck": true,
+    "allowJs": false,
+    "emitDeclarationOnly": true,
+    "checkJs": false
   },
-  "exclude": ["node_modules", "es", "__tests__", "jest.config.ts", "jest.config.*.ts"]
+  "exclude": [
+    "node_modules",
+    "es",
+    "__tests__",
+    "jest.config.ts",
+    "jest.config.*.ts",
+    "vite.config.ts",
+    "types"
+  ]
 }

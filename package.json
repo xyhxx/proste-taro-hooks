@@ -1,6 +1,6 @@
 {
   "name": "proste-taro-hooks",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "便携使用的taro-hook",
   "license": "MIT",
   "author": "xyh xx<xyh050968@gmail.com>",
@@ -16,7 +16,9 @@
     }
   },
   "scripts": {
-    "build": "vite build",
+    "build:type": "tsc",
+    "build:es": "vite build",
+    "build": "npm run build:es & tsc",
     "lint:style": "stylelint packages/**/*.css",
     "lint:script": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:style-fix": "npm run lint:style -- --fix",
@@ -33,8 +35,8 @@
     "type": "git",
     "url": "git+https://github.com/xyhxx/proste-taro.git"
   },
-  "types": "types/src/index.d.ts",
-  "typings": "types/src/index.d.ts",
+  "types": "types/index.d.ts",
+  "typings": "types/index.d.ts",
   "dependencies": {
     "lodash": "^4.17.21",
     "react-use": "^17.3.2",
@@ -75,7 +77,6 @@
     "ts-jest": "^27.1.3",
     "ts-node": "^10.7.0",
     "typescript": "^4.6.2",
-    "vite": "^2.8.6",
-    "vite-plugin-dts": "^0.9.10"
+    "vite": "^2.8.6"
   }
 }

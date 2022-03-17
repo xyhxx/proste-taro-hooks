@@ -1,6 +1,6 @@
 /*
  * @Description:
- * @FilePath: /proste-taro/packages/hooks/index.ts
+ * @FilePath: /proste-taro-hooks/src/index.ts
  */
 
 export * from './useUpdateEffect';
@@ -13,3 +13,5 @@ export * from './useToast';
 export * from './useLoading';
 export * from './useModal';
 export * from './useMounted';
+export * from './useBeforeMount';
+export * from './useTitle';

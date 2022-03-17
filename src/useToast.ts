@@ -64,8 +64,13 @@ export function useToast(
         option = { ...lastOptions.current, ...opt };
       }
 
+      if (!option.title) {
+        rej({ errMsg: '必须传入title属性' });
+        return;
+      }
+
       showToast({
-        ...option,
+        ...(option as unknown as Options),
         success(e) {
           res(e);
         },

@@ -5,10 +5,9 @@
 import { defineConfig } from 'vite';
 import path from 'path';
 import react from '@vitejs/plugin-react';
-import ts from 'vite-plugin-dts';
 
 export default defineConfig({
-  plugins: [react(), ts({ outputDir: 'types' })],
+  plugins: [react()],
   build: {
     outDir: '.',
     lib: {
