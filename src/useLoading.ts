@@ -1,9 +1,10 @@
 /*
  * @Description: 小程序loading调用hook
- * @FilePath: /proste-taro/packages/hooks/useLoading.ts
+ * @FilePath: /proste-taro-hooks/src/useLoading.ts
  */
 
 import { showLoading, hideLoading } from '@tarojs/taro';
+import { isString } from 'lodash';
 import { useCallback } from 'react';
 import { useLatest } from 'react-use';
 
@@ -30,15 +31,42 @@ type Options = {
  * showLoading();
  */
 export function useLoading(
-  options?: Options,
+  options?: Partial<Options>,
 ): [
   showLoading: (opt?: Options) => Promise<TaroGeneral.CallbackResult>,
   hideLoading: (opt?: Pick<Options, 'complete' | 'fail' | 'success'>) => void,
 ] {
-  const lastOptions = useLatest(Object.assign({ mask: true }, options));
+  const lastOptions = useLatest(options);
 
-  const loading = useCallback(function (opt?: Options) {
-    return showLoading(Object.assign(lastOptions, opt));
+  const loading = useCallback(function (opt?: Partial<Options> | string) {
+    return new Promise<TaroGeneral.CallbackResult>(function (res, rej) {
+      if (!opt && !options) {
+        rej({ errMsg: '必须传入options或者opt中一个' });
+        return;
+      }
+      let option;
+
+      if (isString(opt)) {
+        option = { ...lastOptions.current, ...{ title: opt } };
+      } else {
+        option = { ...lastOptions.current, ...opt };
+      }
+
+      if (!option.title) {
+        rej({ errMsg: '必须传入title属性' });
+        return;
+      }
+
+      showLoading({
+        ...(option as unknown as Options),
+        success(e) {
+          res(e);
+        },
+        fail(e) {
+          rej(e);
+        },
+      });
+    });
   }, []);
 
   return [loading, hideLoading];

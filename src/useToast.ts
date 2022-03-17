@@ -1,9 +1,10 @@
 /*
  * @Description: 使用toast的hook
- * @FilePath: /proste-taro/packages/hooks/useToast.ts
+ * @FilePath: /proste-taro-hooks/src/useToast.ts
  */
 
 import { showToast, hideToast } from '@tarojs/taro';
+import { isString } from 'lodash';
 import { useCallback } from 'react';
 import { useLatest } from 'react-use';
 
@@ -42,15 +43,37 @@ type Options = {
  * showToast();
  */
 export function useToast(
-  options?: Options,
+  options?: Partial<Options>,
 ): [
-  showToast: (opt?: Options | undefined) => Promise<TaroGeneral.CallbackResult>,
+  showToast: (opt?: string | Options | undefined) => Promise<TaroGeneral.CallbackResult>,
   hideToast: (option?: Pick<Options, 'complete' | 'success' | 'fail'> | undefined) => void,
 ] {
-  const lastOptions = useLatest(Object.assign({ icon: 'none' }, options));
+  const lastOptions = useLatest(options);
 
-  const toast = useCallback(function (opt?: Options) {
-    return showToast(Object.assign(lastOptions.current, opt));
+  const toast = useCallback(function (opt?: string | Partial<Options>) {
+    return new Promise<TaroGeneral.CallbackResult>(function (res, rej) {
+      if (!lastOptions && !opt) {
+        rej({ errMsg: '必须传入options或者opt中一个' });
+        return;
+      }
+
+      let option;
+      if (isString(opt)) {
+        option = { ...lastOptions.current, ...{ title: opt } };
+      } else {
+        option = { ...lastOptions.current, ...opt };
+      }
+
+      showToast({
+        ...option,
+        success(e) {
+          res(e);
+        },
+        fail(e) {
+          rej(e);
+        },
+      });
+    });
   }, []);
 
   return [toast, hideToast];

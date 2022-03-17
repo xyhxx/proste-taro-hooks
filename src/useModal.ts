@@ -1,9 +1,10 @@
 /*
  * @Description: 小程序modal调用hook
- * @FilePath: /proste-taro/packages/hooks/useModal.ts
+ * @FilePath: /proste-taro-hooks/src/useModal.ts
  */
 
 import { showModal } from '@tarojs/taro';
+import { isString } from 'lodash';
 import { useCallback } from 'react';
 import { useLatest } from 'react-use';
 
@@ -47,13 +48,32 @@ type Options = {
  * const showModal = useModal();
  *
  */
-export function useModal(options?: Options) {
+export function useModal(options?: Partial<Options>) {
   const lastOptions = useLatest(options);
 
-  return useCallback(function (opt?: Options) {
-    const currentOptions =
-      lastOptions.current || opt ? Object.assign({}, lastOptions.current, opt) : void 0;
+  return useCallback(function (opt?: Partial<Options> | string) {
+    return new Promise<TaroGeneral.CallbackResult>(function (res, rej) {
+      if (!lastOptions.current && !opt) {
+        rej({ errMsg: '必须传入一个参数' });
+        return;
+      }
+      let option;
 
-    return showModal(currentOptions);
+      if (isString(opt)) {
+        option = { ...lastOptions.current, ...{ content: opt } };
+      } else {
+        option = { ...lastOptions.current, ...opt };
+      }
+
+      showModal({
+        ...option,
+        success(e) {
+          res(e);
+        },
+        fail(e) {
+          rej(e);
+        },
+      });
+    });
   }, []);
 }
