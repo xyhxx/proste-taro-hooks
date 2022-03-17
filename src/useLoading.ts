@@ -33,7 +33,7 @@ type Options = {
 export function useLoading(
   options?: Partial<Options>,
 ): [
-  showLoading: (opt?: Options) => Promise<TaroGeneral.CallbackResult>,
+  showLoading: (opt?: string | Partial<Options> | undefined) => Promise<TaroGeneral.CallbackResult>,
   hideLoading: (opt?: Pick<Options, 'complete' | 'fail' | 'success'>) => void,
 ] {
   const lastOptions = useLatest(options);
