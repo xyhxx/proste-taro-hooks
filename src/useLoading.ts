@@ -30,12 +30,7 @@ type Options = {
  *
  * showLoading();
  */
-export function useLoading(
-  options?: Partial<Options>,
-): [
-  showLoading: (opt?: string | Partial<Options> | undefined) => Promise<TaroGeneral.CallbackResult>,
-  hideLoading: (opt?: Pick<Options, 'complete' | 'fail' | 'success'>) => void,
-] {
+export function useLoading(options?: Partial<Options>) {
   const lastOptions = useLatest(options);
 
   const loading = useCallback(function (opt?: Partial<Options> | string) {
@@ -69,5 +64,5 @@ export function useLoading(
     });
   }, []);
 
-  return [loading, hideLoading];
+  return { showLoading: loading, hideLoading };
 }

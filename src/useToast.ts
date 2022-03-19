@@ -42,12 +42,7 @@ type Options = {
  *
  * showToast();
  */
-export function useToast(
-  options?: Partial<Options>,
-): [
-  showToast: (opt?: string | Options | undefined) => Promise<TaroGeneral.CallbackResult>,
-  hideToast: (option?: Pick<Options, 'complete' | 'success' | 'fail'> | undefined) => void,
-] {
+export function useToast(options?: Partial<Options>) {
   const lastOptions = useLatest(options);
 
   const toast = useCallback(function (opt?: string | Partial<Options>) {
@@ -81,5 +76,5 @@ export function useToast(
     });
   }, []);
 
-  return [toast, hideToast];
+  return { showToast: toast, hideToast };
 }
