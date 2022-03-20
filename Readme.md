@@ -52,6 +52,10 @@ function useNavigate(): {
   redirect: <T_1>(name: string, params?: Params | T_1 | undefined) => void;
   redirectToTab: (name: string) => void;
   launchTo: (url: string) => void;
+  navigate: {
+    (delta: number): void;
+    <T_2>(name: string, params?: Params | T_2 | undefined): void;
+  };
 };
 ```
 
@@ -81,12 +85,10 @@ declare type Options = {
  *
  * showLoading();
  */
-export declare function useLoading(
-  options?: Partial<Options>,
-): [
-  showLoading: (opt?: string | Partial<Options> | undefined) => Promise<TaroGeneral.CallbackResult>,
-  hideLoading: (opt?: Pick<Options, 'complete' | 'fail' | 'success'>) => void,
-];
+export declare function useLoading(options?: Partial<Options>): {
+  showLoading: (opt?: string | Partial<Options> | undefined) => Promise<TaroGeneral.CallbackResult>;
+  hideLoading: (opt?: Pick<Options, 'complete' | 'fail' | 'success'>) => void;
+};
 ```
 
 ## useModal
@@ -159,11 +161,11 @@ function useParams<T extends Record<string, string>>(): Partial<T>;
 
 ```typescript
 function useStorage<T>(key: string): [
-  value: T,
+  value: MaybeUndefind<T>,
   action: {
-    set: (value: T | ((state: T) => T)) => void;
-    get: () => T;
-    remove: VoidFunction;
+    set: (value: T | ((state: T | undefined) => T)) => void;
+    get: () => T | undefined;
+    remove: () => void;
   },
 ];
 ```
@@ -214,12 +216,10 @@ declare type Options = {
  *
  * showToast();
  */
-export declare function useToast(
-  options?: Partial<Options>,
-): [
-  showToast: (opt?: string | Options | undefined) => Promise<TaroGeneral.CallbackResult>,
-  hideToast: (option?: Pick<Options, 'complete' | 'success' | 'fail'> | undefined) => void,
-];
+export declare function useToast(options?: Partial<Options>): {
+  showToast: (opt?: string | Options | undefined) => Promise<TaroGeneral.CallbackResult>;
+  hideToast: (option?: Pick<Options, 'complete' | 'success' | 'fail'> | undefined) => void;
+};
 ```
 
 ## useUpdateEffect

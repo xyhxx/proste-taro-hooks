@@ -7,6 +7,8 @@ import { getStorageSync, removeStorageSync, setStorageSync } from '@tarojs/taro'
 import { isFunction } from 'lodash';
 import { useMemo } from 'react';
 
+type MaybeUndefind<T> = T | undefined;
+
 /**
  * 提供读写缓存能力的hook
  *
@@ -16,16 +18,18 @@ import { useMemo } from 'react';
  * const [value, {set, get}] = useStorage(key);
  *
  */
-export function useStorage<T>(
-  key: string,
-): [
-  value: T,
-  action: { set: (value: T | ((state: T) => T)) => void; get: () => T; remove: VoidFunction },
+export function useStorage<T>(key: string): [
+  value: MaybeUndefind<T>,
+  action: {
+    set: (value: T | ((state: T | undefined) => T)) => void;
+    get: () => T | undefined;
+    remove: () => void;
+  },
 ] {
   return useMemo(() => {
-    const value = getStorageSync<T>(key);
+    const value = getStorageSync<T | undefined>(key);
 
-    function set(arg: T | ((state: T) => T)) {
+    function set(arg: T | ((state: T | undefined) => T)) {
       let val: T;
       if (isFunction(arg)) {
         val = arg(value);
@@ -37,7 +41,7 @@ export function useStorage<T>(
     }
 
     function get() {
-      return getStorageSync<T>(key);
+      return getStorageSync<T | undefined>(key);
     }
 
     function remove() {

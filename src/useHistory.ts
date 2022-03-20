@@ -50,7 +50,21 @@ export function useNavigate() {
       reLaunch({ url });
     }
 
-    return { push, pop, redirect, redirectToTab, launchTo };
+    function navigate(delta: number): void;
+    function navigate<T>(name: string, params?: Params | T): void;
+    function navigate<T>(name: string | number, params?: Params | T): void {
+      if (typeof name === 'string') {
+        push(name, params);
+        return;
+      }
+      if (name <= 0) {
+        throw new Error('delat回退数量必须大于0');
+      }
+
+      pop(name);
+    }
+
+    return { push, pop, redirect, redirectToTab, launchTo, navigate };
   }, [formatParams]);
 
   return actions;
