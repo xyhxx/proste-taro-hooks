@@ -171,7 +171,7 @@ function useParams<T extends Record<string, string>>(): Partial<T>;
 
 ```typescript
 function useStorage<T>(key: string): [
-  value: MaybeUndefind<T>,
+  value: T | undefined,
   action: {
     set: (value: T | ((state: T | undefined) => T)) => void;
     get: () => T | undefined;
