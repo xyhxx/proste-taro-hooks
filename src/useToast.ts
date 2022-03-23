@@ -6,7 +6,7 @@
 import { showToast, hideToast } from '@tarojs/taro';
 import { isString } from 'lodash';
 import { useCallback } from 'react';
-import { useLatest } from 'react-use';
+import { useLatest } from './useLatest';
 
 type Options = {
   /** 提示的内容 */

@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react-hooks';
-import { useBeforeMount } from '../src/useBeforeMount';
+import useBeforeMount from '../src/useBeforeMount';
 
 const callback = jest.fn();
 

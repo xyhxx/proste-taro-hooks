@@ -1,4 +1,4 @@
-import { useDelay } from '../src/useDelay';
+import useDelay from '../src/useDelay';
 import { act, renderHook } from '@testing-library/react-hooks';
 import { useState } from 'react';
 

@@ -1,6 +1,6 @@
 import React, { Dispatch, FC, useEffect, useReducer } from 'react';
 import { createContext } from 'use-context-selector';
-import { useContextWithEqual } from '../src/useContextWithEqual';
+import useContextWithEqual from '../src/useContextWithEqual';
 import { fireEvent, render, RenderResult } from '@testing-library/react';
 
 type State = ReturnType<typeof state>;
@@ -25,7 +25,7 @@ function reducer(state: State, action: Action): State {
 }
 
 let app: RenderResult<
-  typeof import('D:/studyCode/plugin/proste-taro/node_modules/@testing-library/dom/types/queries'),
+  typeof import('D:/studyCode/plugin/proste-taro-hooks/node_modules/@testing-library/dom/types/queries'),
   HTMLElement,
   HTMLElement
 >;

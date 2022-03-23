@@ -17,6 +17,14 @@ function useBeforeMount(effect: EffectCallback): void;
 function useContextWithEqual<T, R>(context: Context<T>, selector: (state: T) => R): R;
 ```
 
+## useMounted
+
+> 只有在加载时触发一次的 useEffect
+
+```typescript
+function useMounted(effect: EffectCallback): void;
+```
+
 ## useDelay
 
 > 可以主动调用的延迟函数
@@ -24,6 +32,16 @@ function useContextWithEqual<T, R>(context: Context<T>, selector: (state: T) => 
 ```typescript
 function useDelay<T>(fn: (state?: T) => void, delay: number): (state?: T | undefined) => void;
 ```
+
+## useUpdateEffect
+
+> 只有在依赖更新（除了第一次）触发
+
+```typescript
+function useUpdateEffect(effect: EffectCallback, deps?: DependencyList): void;
+```
+
+# 以下只有在 taro 环境下使用
 
 ## useEvents
 
@@ -139,14 +157,6 @@ export declare function useModal(
 ): (opt?: string | Partial<Options> | undefined) => Promise<TaroGeneral.CallbackResult>;
 ```
 
-## useMounted
-
-> 只有在加载时触发一次的 useEffect
-
-```typescript
-function useMounted(effect: EffectCallback): void;
-```
-
 ## useParams
 
 > 获取路由参数
@@ -170,12 +180,12 @@ function useStorage<T>(key: string): [
 ];
 ```
 
-## useTitle
+## useNavigationBarTitle
 
 > 设置当前页面标题
 
 ```typescript
-function useTitle(title: string): void;
+function useNavigationBarTitle(title: string): void;
 ```
 
 ## useToast
@@ -220,12 +230,4 @@ export declare function useToast(options?: Partial<Options>): {
   showToast: (opt?: string | Options | undefined) => Promise<TaroGeneral.CallbackResult>;
   hideToast: (option?: Pick<Options, 'complete' | 'success' | 'fail'> | undefined) => void;
 };
-```
-
-## useUpdateEffect
-
-> 只有在依赖更新（除了第一次）触发
-
-```typescript
-function useUpdateEffect(effect: EffectCallback, deps?: DependencyList): void;
 ```

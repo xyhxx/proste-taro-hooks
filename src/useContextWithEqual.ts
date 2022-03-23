@@ -1,11 +1,11 @@
 /*
  * @Description:比较相同context hook 判断返回数据是否有变化进行渲染
- * @FilePath: /proste-taro/packages/hooks/useContextWithEqual.ts
+ * @FilePath: /proste-taro-hooks/src/useContextWithEqual.ts
  */
 
 import { isEqual } from 'lodash';
 import { useMemo } from 'react';
-import { useLatest } from 'react-use';
+import { useLatest } from './useLatest';
 import { Context, useContextSelector } from 'use-context-selector';
 
 /**

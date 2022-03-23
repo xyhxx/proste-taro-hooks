@@ -5,7 +5,7 @@
 
 export * from './useUpdateEffect';
 export * from './useParams';
-export * from './useHistory';
+export * from './useNavigate';
 export * from './useEvents';
 export * from './useStorage';
 export * from './useContextWithEqual';
@@ -14,4 +14,4 @@ export * from './useLoading';
 export * from './useModal';
 export * from './useMounted';
 export * from './useBeforeMount';
-export * from './useTitle';
+export * from './useNavigationBarTitle';

@@ -4,7 +4,7 @@
  */
 
 import { useCallback, useEffect, useRef } from 'react';
-import { useLatest } from 'react-use';
+import { useLatest } from './useLatest';
 
 /**
  * 可以主动调用的延迟函数

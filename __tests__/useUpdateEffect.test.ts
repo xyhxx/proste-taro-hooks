@@ -1,4 +1,4 @@
-import { useUpdateEffect } from '../src/useUpdateEffect';
+import useUpdateEffect from '../src/useUpdateEffect';
 import { act, renderHook } from '@testing-library/react-hooks';
 import { useState } from 'react';
 

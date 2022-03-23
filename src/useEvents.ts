@@ -1,6 +1,6 @@
 /*
  * @Description:发布订阅hooks
- * @FilePath: /proste-taro/packages/hooks/useEvents.ts
+ * @FilePath: /proste-taro-hooks/src/useEvents.ts
  */
 
 import { Events } from '@tarojs/taro';

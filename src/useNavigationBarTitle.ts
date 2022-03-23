@@ -1,6 +1,6 @@
 /*
  * @Description: 修改当前标题信息
- * @FilePath: /proste-taro-hooks/src/useTitle.ts
+ * @FilePath: /proste-taro-hooks/src/useNavigationBarTitle.ts
  */
 import { setNavigationBarTitle } from '@tarojs/taro';
 import { useBeforeMount } from './useBeforeMount';
@@ -12,7 +12,7 @@ import { useBeforeMount } from './useBeforeMount';
  *
  * useTitle('标题')
  */
-export function useTitle(title: string) {
+export function useNavigationBarTitle(title: string) {
   useBeforeMount(function () {
     setNavigationBarTitle({ title });
   });

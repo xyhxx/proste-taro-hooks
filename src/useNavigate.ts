@@ -1,6 +1,6 @@
 /*
  * @Description: 小程序导航hooks
- * @FilePath: /proste-taro-hooks/src/useHistory.ts
+ * @FilePath: /proste-taro-hooks/src/useNavigate.ts
  */
 
 import { useCallback, useMemo } from 'react';

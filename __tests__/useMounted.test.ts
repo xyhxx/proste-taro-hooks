@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react-hooks';
-import { useMounted } from '../src/useMounted';
+import useMounted from '../src/useMounted';
 
 const callback = jest.fn();
 

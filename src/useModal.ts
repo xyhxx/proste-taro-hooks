@@ -6,7 +6,7 @@
 import { showModal } from '@tarojs/taro';
 import { isString } from 'lodash';
 import { useCallback } from 'react';
-import { useLatest } from 'react-use';
+import { useLatest } from './useLatest';
 
 type SuccessCallbackResult = TaroGeneral.CallbackResult & {
   /** 为 true 时，表示用户点击了取消（用于 Android 系统区分点击蒙层关闭还是点击取消按钮关闭） */

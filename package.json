@@ -1,7 +1,7 @@
 {
-  "name": "proste-taro-hooks",
-  "version": "2.1.0",
-  "description": "便携使用的taro-hook",
+  "name": "proste-react-hooks",
+  "version": "1.1.2",
+  "description": "Eeasy to use hooks",
   "license": "MIT",
   "author": "xyh xx<xyh050968@gmail.com>",
   "main": "es/index.js",
@@ -9,6 +9,11 @@
   "files": [
     "es/",
     "types/"
+  ],
+  "keywords": [
+    "react",
+    "hooks",
+    "taro"
   ],
   "exports": {
     ".": {
@@ -39,7 +44,6 @@
   "typings": "types/index.d.ts",
   "dependencies": {
     "lodash": "^4.17.21",
-    "react-use": "^17.3.2",
     "use-context-selector": "^1.3.9"
   },
   "peerDependencies": {

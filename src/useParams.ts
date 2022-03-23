@@ -1,6 +1,6 @@
 /*
  * @Description: 获取路由参数
- * @FilePath: /proste-taro/packages/hooks/useParams.ts
+ * @FilePath: /proste-taro-hooks/src/useParams.ts
  */
 
 import { getCurrentInstance } from '@tarojs/taro';

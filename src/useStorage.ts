@@ -7,8 +7,6 @@ import { getStorageSync, removeStorageSync, setStorageSync } from '@tarojs/taro'
 import { isFunction } from 'lodash';
 import { useMemo } from 'react';
 
-type MaybeUndefind<T> = T | undefined;
-
 /**
  * 提供读写缓存能力的hook
  *
@@ -19,7 +17,7 @@ type MaybeUndefind<T> = T | undefined;
  *
  */
 export function useStorage<T>(key: string): [
-  value: MaybeUndefind<T>,
+  value: T | undefined,
   action: {
     set: (value: T | ((state: T | undefined) => T)) => void;
     get: () => T | undefined;
