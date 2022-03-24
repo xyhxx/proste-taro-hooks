@@ -11,4 +11,5 @@ tsconfig.json
 *.json
 vite.config.ts
 es/
+umd/
 __tests__

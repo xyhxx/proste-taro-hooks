@@ -14,10 +14,17 @@ export default defineConfig({
       entry: path.resolve(__dirname, 'src/index.ts'),
       name: '@proste-taro/hooks',
       fileName: format => `${format}/index.js`,
-      formats: ['es'],
     },
     rollupOptions: {
-      external: ['react', '@tarojs/taro', 'lodash', 'react-use', 'use-context-selector'],
+      external: ['react', '@tarojs/taro', 'lodash', 'use-context-selector'],
+      output: {
+        globals: {
+          react: 'react',
+          '@tarojs/taro': '@tarojs/taro',
+          lodash: 'lodash',
+          'use-context-selector': 'use-context-selector',
+        },
+      },
     },
   },
 });

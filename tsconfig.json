@@ -27,6 +27,7 @@
   "exclude": [
     "node_modules",
     "es",
+    "umd",
     "__tests__",
     "jest.config.ts",
     "jest.config.*.ts",
